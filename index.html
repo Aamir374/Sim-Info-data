@@ -623,6 +623,42 @@
             color: var(--primary);
         }
 
+        /* CAPTCHA Box */
+        .captcha-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 15px 20px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .captcha-question {
+            color: var(--text-main);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .captcha-input {
+            width: 80px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border-light);
+            padding: 10px;
+            color: #fff;
+            border-radius: 8px;
+            font-size: 1rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .captcha-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
         /* Mobile Fixes */
         @media (max-width: 768px) {
             .health-grid {
@@ -672,6 +708,15 @@
                     <input type="tel" id="searchInput" placeholder="300 1234567" maxlength="11">
                     <button class="search-btn" onclick="validateAndSearch()"><i
                             class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+
+                <!-- CAPTCHA Verification -->
+                <div class="captcha-box">
+                    <div class="captcha-question">
+                        <i class="fa-solid fa-shield-halved" style="color: var(--primary); margin-right: 8px;"></i>
+                        Verify: <span id="captchaQ">5 + 3 = ?</span>
+                    </div>
+                    <input type="number" id="captchaInput" class="captcha-input" placeholder="?" maxlength="2">
                 </div>
             </div>
 
@@ -884,6 +929,19 @@
         // Initial delay
         setTimeout(showActivity, 5000);
 
+        // CAPTCHA Variables
+        let captchaAnswer = 0;
+
+        function generateCaptcha() {
+            const num1 = Math.floor(Math.random() * 10) + 1;
+            const num2 = Math.floor(Math.random() * 10) + 1;
+            captchaAnswer = num1 + num2;
+            document.getElementById('captchaQ').innerText = `${num1} + ${num2} = ?`;
+        }
+
+        // Generate initial CAPTCHA
+        generateCaptcha();
+
         const msgs = [
             "Establishing secure connection...",
             "Encrypting request packets...",
@@ -895,6 +953,18 @@
         ];
 
         function validateAndSearch() {
+            // CAPTCHA Validation
+            const captchaInput = document.getElementById('captchaInput');
+            const userAnswer = parseInt(captchaInput.value);
+
+            if (!userAnswer || userAnswer !== captchaAnswer) {
+                alert("❌ CAPTCHA verification failed! Please solve the math problem correctly.");
+                captchaInput.value = '';
+                captchaInput.focus();
+                generateCaptcha(); // Generate new CAPTCHA
+                return;
+            }
+
             const input = document.getElementById('searchInput');
             let val = input.value.replace(/\D/g, ''); // Remove non-digits but we need to handle 03 vs 3.
 
@@ -933,6 +1003,10 @@
                     showFinalResult(val);
                 }
             }, 350); // fast updates
+
+            // Reset CAPTCHA after successful search
+            captchaInput.value = '';
+            generateCaptcha();
         }
 
         function showFinalResult(num) {
