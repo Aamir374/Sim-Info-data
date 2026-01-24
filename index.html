@@ -515,32 +515,123 @@
             margin-bottom: 1rem;
         }
 
-        /* Mobile Adjustments */
+        /* Engagement Features */
+        .engagement-section {
+            margin-top: 5rem;
+            text-align: center;
+        }
+
+        /* Network Health Dashboard */
+        .health-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            margin: 2rem 0;
+        }
+
+        .health-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-light);
+            padding: 1.5rem;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .health-card:hover {
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        .h-name {
+            font-size: 0.9rem;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .h-status {
+            font-size: 0.75rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .h-status span {
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        /* How it Works */
+        .step-container {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .step-item {
+            flex: 1;
+            min-width: 200px;
+            position: relative;
+        }
+
+        .step-num {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: 900;
+            margin: 0 auto 15px;
+            box-shadow: 0 0 15px var(--primary-glow);
+        }
+
+        /* Live Activity Toast */
+        .activity-toast {
+            position: fixed;
+            bottom: 60px;
+            left: 20px;
+            background: var(--card-glass);
+            border-left: 4px solid var(--primary);
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transform: translateX(-150%);
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .activity-toast.show {
+            transform: translateX(0);
+        }
+
+        .activity-toast i {
+            color: var(--primary);
+        }
+
+        /* Mobile Fixes */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
+            .health-grid {
+                grid-template-columns: 1fr 1fr;
             }
 
-            .hero {
-                padding-top: 2rem;
-            }
-
-            .row {
-                padding: 15px 20px;
-                font-size: 0.9rem;
-            }
-
-            .stats-bar {
-                gap: 1rem;
-                width: 100%;
-                border-radius: 20px;
-            }
-
-            .ticker-wrap {
+            .activity-toast {
                 display: none;
             }
-
-            /* Hide ticker on mobile to save space */
         }
     </style>
 </head>
@@ -662,8 +753,58 @@
             </div>
         </div>
 
+        <!-- Network Status Dashboard -->
+        <div class="engagement-section">
+            <h2 style="font-size: 1.5rem; color: #fff;">Network Infrastructure Status</h2>
+            <div class="health-grid">
+                <div class="health-card">
+                    <span class="h-name">Jazz / Warid</span>
+                    <div class="h-status"><span></span> Online</div>
+                </div>
+                <div class="health-card">
+                    <span class="h-name">Zong 4G</span>
+                    <div class="h-status"><span></span> Stable</div>
+                </div>
+                <div class="health-card">
+                    <span class="h-name">Telenor</span>
+                    <div class="h-status"><span></span> Optimal</div>
+                </div>
+                <div class="health-card">
+                    <span class="h-name">Ufone 4G</span>
+                    <div class="h-status"><span></span> Live</div>
+                </div>
+                <div class="health-card">
+                    <span class="h-name">SCOM</span>
+                    <div class="h-status"><span></span> Passive</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- How it Works -->
+        <div class="engagement-section" style="margin-top: 8rem;">
+            <p style="color: var(--primary); font-weight: 700; letter-spacing: 2px;">PROCESS</p>
+            <h2 style="font-size: 2.2rem; color: #fff;">Three Simple Steps</h2>
+            <div class="step-container">
+                <div class="step-item">
+                    <div class="step-num">1</div>
+                    <h3>Enter Number</h3>
+                    <p>Input the 11-digit mobile number you wish to verify.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">2</div>
+                    <h3>Handshake</h3>
+                    <p>Wait while our algorithms query the decentralized databases.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">3</div>
+                    <h3>Get Result</h3>
+                    <p>Receive an encrypted report containing the owner's details.</p>
+                </div>
+            </div>
+        </div>
+
         <!-- content grid -->
-        <h2 style="text-align: center; font-size: 1.8rem; margin-top: 4rem;">Secure & Reliable</h2>
+        <h2 style="text-align: center; font-size: 1.8rem; margin-top: 8rem;">Secure & Reliable</h2>
         <div class="info-grid">
             <div class="info-box">
                 <i class="fa-solid fa-user-secret info-icon"></i>
@@ -705,7 +846,39 @@
         </div>
     </div>
 
+    <!-- Activity Toast Container -->
+    <div class="activity-toast" id="activityToast">
+        <i class="fa-solid fa-bell"></i>
+        <span id="activityText">User in Lahore just verified a SIM.</span>
+    </div>
+
     <script>
+        // Activity Notification Logic
+        const locations = ['Lahore', 'Karachi', 'Islamabad', 'Faisalabad', 'Multan', 'Peshawar', 'Quetta', 'Sialkot'];
+        const networks = ['Jazz', 'Zong', 'Telenor', 'Ufone'];
+
+        function showActivity() {
+            const toast = document.getElementById('activityToast');
+            const text = document.getElementById('activityText');
+            const loc = locations[Math.floor(Math.random() * locations.length)];
+            const net = networks[Math.floor(Math.random() * networks.length)];
+
+            text.innerHTML = `User in <b>${loc}</b> just verified a ${net} SIM.`;
+            toast.classList.add('show');
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 4000);
+        }
+
+        // Show activity every 15-25 seconds
+        setInterval(() => {
+            showActivity();
+        }, 15000 + Math.random() * 10000);
+
+        // Initial delay
+        setTimeout(showActivity, 5000);
+
         const msgs = [
             "Establishing secure connection...",
             "Encrypting request packets...",
