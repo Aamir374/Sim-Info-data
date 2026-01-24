@@ -11,7 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Reusing main styles for consistency */
         :root {
             --primary: #00ff88;
             --primary-glow: rgba(0, 255, 136, 0.4);
@@ -28,14 +27,45 @@
             margin: 0;
             padding: 0;
             font-family: 'Outfit', sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
             background-color: var(--bg-dark);
             color: var(--text-main);
             min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
         }
 
+        /* Animated Background Grid */
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .bg-glow {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80vw;
+            height: 80vh;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.15) 0%, transparent 60%);
+            z-index: -1;
+            filter: blur(80px);
+        }
+
+        /* Navbar */
         nav {
             padding: 1rem 5%;
             display: flex;
@@ -52,6 +82,7 @@
         .logo {
             font-size: 1.4rem;
             font-weight: 800;
+            letter-spacing: 1px;
             color: white;
             text-decoration: none;
             display: flex;
@@ -63,6 +94,7 @@
             color: var(--primary);
         }
 
+        /* Nav Links */
         .nav-links {
             display: flex;
             gap: 30px;
@@ -78,6 +110,7 @@
 
         .nav-links a:hover {
             color: var(--primary);
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
         }
 
         .nav-links a.active {
@@ -92,41 +125,79 @@
         }
 
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(to right, #fff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
         }
 
         p {
             color: var(--text-muted);
             line-height: 1.8;
             margin-bottom: 1.5rem;
-            font-size: 1.05rem;
+            font-size: 1.1rem;
         }
 
         .card {
             background: var(--card-glass);
             border: 1px solid var(--border-light);
-            padding: 2rem;
-            border-radius: 12px;
-            margin-bottom: 2rem;
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-bottom: 2.5rem;
+            backdrop-filter: blur(10px);
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         h2 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
             color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h2::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: var(--primary);
+            border-radius: 4px;
         }
 
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
             }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
 
 <body>
+    <div class="bg-grid"></div>
+    <div class="bg-glow"></div>
 
     <nav>
         <a href="index.html" class="logo"><i class="fa-solid fa-satellite-dish"></i> SIM DB 26</a>
@@ -135,18 +206,17 @@
             <a href="about.html" class="active">About</a>
             <a href="disclaimer.html">Disclaimer</a>
             <a href="privacy.html">Privacy</a>
-            <a href="contact.html">Contact</a>
         </div>
     </nav>
 
     <div class="container">
-        <h1>About Us</h1>
+        <h1>About Our Portal</h1>
 
         <div class="card">
             <h2>Who We Are</h2>
             <p>Welcome to <strong>Live SIM Database Pakistan 2026</strong>, the country’s leading online utility for
                 mobile network verification. Our platform is designed to provide citizens with instant, accurate, and
-                free access to publicly available network information (MNP status) and location data.</p>
+                free access to publicly available network information (MNP status) and location meta-data.</p>
             <p>Our mission is to increase digital transparency and safety by allowing users to verify the ownership
                 status and network provider of unknown numbers, helping to curb spam, fraud, and harassment.</p>
         </div>
@@ -161,6 +231,9 @@
         </div>
     </div>
 
+    <footer style="text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.9rem;">
+        &copy; 2026 Live SIM Database PK. All Rights Reserved.
+    </footer>
 </body>
 
 </html>
