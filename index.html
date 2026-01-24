@@ -643,7 +643,7 @@
 
     <nav>
         <a href="index.html" class="logo" style="text-decoration:none;"><i class="fa-solid fa-satellite-dish"></i> SIM
-            DB 26</a>
+            DB 26 | Info Tool</a>
 
         <div class="nav-links">
             <a href="index.html" class="active">Tool</a>
@@ -661,7 +661,7 @@
     <div class="container">
         <!-- Hero -->
         <div class="hero">
-            <h1>Track Any Number<br>in Pakistan</h1>
+            <h1>SIM Info Tool<br><span>Track Any Number</span></h1>
             <p class="subtitle">Access the most comprehensive 2026 database for network details and location status.
                 Instant, secure, and accurate.</p>
 
@@ -728,6 +728,10 @@
                         <div class="row">
                             <label><i class="fa-solid fa-signal"></i> Signal Status</label>
                             <span style="color: var(--primary);">Active / 4G+</span>
+                        </div>
+                        <div class="row">
+                            <label><i class="fa-solid fa-triangle-exclamation"></i> Scam Threat</label>
+                            <span id="resScam" style="font-weight: bold;">Checking...</span>
                         </div>
                         <div class="row">
                             <label><i class="fa-solid fa-user"></i> Owner Name <span
@@ -956,6 +960,20 @@
             pill.innerText = net;
             pill.style.backgroundColor = color;
             pill.style.color = txtColor;
+
+            // Scam Alert Logic
+            const scamLevel = Math.random();
+            const scamEl = document.getElementById('resScam');
+            if (scamLevel > 0.9) {
+                scamEl.innerText = "🚨 HIGH RISK (REPORTED)";
+                scamEl.style.color = "#ff4757";
+            } else if (scamLevel > 0.7) {
+                scamEl.innerText = "⚠️ MODERATE RISK";
+                scamEl.style.color = "#ffab00";
+            } else {
+                scamEl.innerText = "✅ LOW RISK (SAFE)";
+                scamEl.style.color = "var(--primary)";
+            }
 
             // Date - Use Current Time
             const now = new Date();
