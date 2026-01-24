@@ -144,6 +144,38 @@
             gap: 6px;
         }
 
+        /* Nav Links */
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+        }
+
+        .nav-links a.active {
+            color: #fff;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            /* Simplified for mobile - can trigger menu later if requested */
+        }
+
         .dot {
             width: 6px;
             height: 6px;
@@ -519,7 +551,17 @@
     <div class="bg-glow"></div>
 
     <nav>
-        <div class="logo"><i class="fa-solid fa-satellite-dish"></i> SIM DB 26</div>
+        <a href="index.html" class="logo" style="text-decoration:none;"><i class="fa-solid fa-satellite-dish"></i> SIM
+            DB 26</a>
+
+        <div class="nav-links">
+            <a href="index.html" class="active">Tool</a>
+            <a href="about.html">About</a>
+            <a href="disclaimer.html">Disclaimer</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
         <div class="live-badge">
             <div class="dot"></div>
             Online Database

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Disclaimer | Live SIM Database 2026</title>
+    <meta name="description"
+        content="Legal disclaimer for Live SIM Database. We operate in compliance with PECA 2016 and do not support illegal tracking or data misuse.">
+    <meta name="robots" content="noindex, follow">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #ff4757;
+            /* Red for warning/disclaimer tone */
+            --bg-dark: #0a0f1c;
+            --card-glass: rgba(16, 23, 41, 0.8);
+            --border-light: rgba(255, 255, 255, 0.08);
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+        }
+
+        nav {
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-light);
+            background: rgba(10, 15, 28, 0.8);
+            backdrop-filter: blur(15px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: #00ff88;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #00ff88;
+        }
+
+        .nav-links a.active {
+            color: #fff;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        p {
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .card {
+            background: var(--card-glass);
+            border: 1px solid var(--border-light);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .alert-box {
+            background: rgba(255, 71, 87, 0.1);
+            border: 1px solid rgba(255, 71, 87, 0.3);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html" class="logo"><i class="fa-solid fa-satellite-dish"></i> SIM DB 26</a>
+        <div class="nav-links">
+            <a href="index.html">Tool</a>
+            <a href="about.html">About</a>
+            <a href="disclaimer.html" class="active">Disclaimer</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Legal Disclaimer</h1>
+
+        <div class="alert-box">
+            <p style="color: #fff; margin:0;"><i class="fa-solid fa-triangle-exclamation"></i>
+                <strong>Important:</strong> By using this website, you agree to the terms outlined below. Misuse of data
+                provided herein may result in legal action under the laws of Pakistan.</p>
+        </div>
+
+        <div class="card">
+            <h2><i class="fa-solid fa-gavel"></i> Informational Purpose Only</h2>
+            <p>This website is an educational and informational utility designed to help users identify the network
+                provider (Mobile Network Portability status) and general region of Pakistani mobile numbers. It is NOT
+                an official government database and is not affiliated with NADRA, PTA, or any telecom operator.</p>
+        </div>
+
+        <div class="card">
+            <h2><i class="fa-solid fa-user-shield"></i> Data Privacy Compliance</h2>
+            <p>We strictly adhere to the <strong>Prevention of Electronic Crimes Act (PECA) 2016</strong>. We do NOT
+                provide access to sensitive private information such as exact home addresses, CNIC numbers, or Family
+                Trees without proper authorization or consent. Any fields displaying "Protected" are intentionally
+                masked to comply with local privacy laws.</p>
+        </div>
+
+        <div class="card">
+            <h2><i class="fa-solid fa-ban"></i> Prohibition of Misuse</h2>
+            <p>Users are strictly prohibited from using this tool for:</p>
+            <ul style="color: var(--text-muted); padding-left: 20px; line-height: 1.8;">
+                <li>Stalking, harassment, or blackmailing.</li>
+                <li>Marketing spam or unsolicited robotic calls.</li>
+                <li>Identity theft or fraud.</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>
