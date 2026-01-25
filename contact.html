@@ -124,6 +124,7 @@
             text-align: center;
             background: linear-gradient(to right, #fff, var(--primary));
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
@@ -236,6 +237,28 @@
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(10, 15, 28, 0.95);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 20px;
+                border-bottom: 1px solid var(--border-light);
+                z-index: 99;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block !important;
+                font-size: 1.5rem;
+                cursor: pointer;
+                color: var(--text-main);
             }
 
             h1 {
@@ -246,6 +269,10 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        .menu-toggle {
+            display: none;
+        }
     </style>
 </head>
 
@@ -255,12 +282,15 @@
 
     <nav>
         <a href="index.html" class="logo"><i class="fa-solid fa-satellite-dish"></i> SIM DB 26</a>
-        <div class="nav-links">
+        <div class="nav-links" id="navLinks">
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="disclaimer.html">Disclaimer</a>
             <a href="privacy.html">Privacy</a>
             <a href="contact.html" class="active">Contact</a>
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="fa-solid fa-bars"></i>
         </div>
     </nav>
 
@@ -314,6 +344,19 @@
             alert('Thank you for your message! We will get back to you within 24-48 hours.');
             this.reset();
         });
+
+        function toggleMenu() {
+            const nav = document.getElementById('navLinks');
+            nav.classList.toggle('active');
+            const icon = document.querySelector('.menu-toggle i');
+            if (nav.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        }
     </script>
 </body>
 

@@ -171,9 +171,33 @@
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(10, 15, 28, 0.95);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 20px;
+                border-bottom: 1px solid var(--border-light);
+                z-index: 99;
             }
 
-            /* Simplified for mobile - can trigger menu later if requested */
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block !important;
+                font-size: 1.5rem;
+                cursor: pointer;
+                color: var(--text-main);
+            }
+        }
+
+        .menu-toggle {
+            display: none;
         }
 
         .dot {
@@ -223,6 +247,7 @@
             margin-bottom: 1rem;
             background: linear-gradient(to right, #fff, #b4dbe0);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
@@ -232,6 +257,16 @@
             max-width: 500px;
             margin-bottom: 2.5rem;
             line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero {
+                padding: 3rem 0 1rem;
+            }
         }
 
         /* Search Box */
@@ -681,12 +716,16 @@
         <a href="index.html" class="logo" style="text-decoration:none;"><i class="fa-solid fa-satellite-dish"></i> SIM
             DB 26 | Info Tool</a>
 
-        <div class="nav-links">
+        <div class="nav-links" id="navLinks">
             <a href="index.html" class="active">Home</a>
             <a href="about.html">About</a>
             <a href="disclaimer.html">Disclaimer</a>
             <a href="privacy.html">Privacy</a>
             <a href="contact.html">Contact</a>
+        </div>
+
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="fa-solid fa-bars"></i>
         </div>
 
         <div class="live-badge">
@@ -802,84 +841,85 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Network Status Dashboard -->
-        <div class="engagement-section">
-            <h2 style="font-size: 1.5rem; color: #fff;">Network Infrastructure Status</h2>
-            <div class="health-grid">
-                <div class="health-card">
-                    <span class="h-name">Jazz / Warid</span>
-                    <div class="h-status"><span></span> Online</div>
-                </div>
-                <div class="health-card">
-                    <span class="h-name">Zong 4G</span>
-                    <div class="h-status"><span></span> Stable</div>
-                </div>
-                <div class="health-card">
-                    <span class="h-name">Telenor</span>
-                    <div class="h-status"><span></span> Optimal</div>
-                </div>
-                <div class="health-card">
-                    <span class="h-name">Ufone 4G</span>
-                    <div class="h-status"><span></span> Live</div>
-                </div>
-                <div class="health-card">
-                    <span class="h-name">SCOM</span>
-                    <div class="h-status"><span></span> Passive</div>
-                </div>
+    <!-- Network Status Dashboard -->
+    <div class="engagement-section">
+        <h2 style="font-size: 1.5rem; color: #fff;">Network Infrastructure Status</h2>
+        <div class="health-grid">
+            <div class="health-card">
+                <span class="h-name">Jazz / Warid</span>
+                <div class="h-status"><span></span> Online</div>
+            </div>
+            <div class="health-card">
+                <span class="h-name">Zong 4G</span>
+                <div class="h-status"><span></span> Stable</div>
+            </div>
+            <div class="health-card">
+                <span class="h-name">Telenor</span>
+                <div class="h-status"><span></span> Optimal</div>
+            </div>
+            <div class="health-card">
+                <span class="h-name">Ufone 4G</span>
+                <div class="h-status"><span></span> Live</div>
+            </div>
+            <div class="health-card">
+                <span class="h-name">SCOM</span>
+                <div class="h-status"><span></span> Passive</div>
             </div>
         </div>
+    </div>
 
-        <!-- How it Works -->
-        <div class="engagement-section" style="margin-top: 8rem;">
-            <p style="color: var(--primary); font-weight: 700; letter-spacing: 2px;">PROCESS</p>
-            <h2 style="font-size: 2.2rem; color: #fff;">Three Simple Steps</h2>
-            <div class="step-container">
-                <div class="step-item">
-                    <div class="step-num">1</div>
-                    <h3>Enter Number</h3>
-                    <p>Input the 11-digit mobile number you wish to verify.</p>
-                </div>
-                <div class="step-item">
-                    <div class="step-num">2</div>
-                    <h3>Handshake</h3>
-                    <p>Wait while our algorithms query the decentralized databases.</p>
-                </div>
-                <div class="step-item">
-                    <div class="step-num">3</div>
-                    <h3>Get Result</h3>
-                    <p>Receive an encrypted report containing the owner's details.</p>
-                </div>
+    <!-- How it Works -->
+    <div class="engagement-section" style="margin-top: 8rem;">
+        <p style="color: var(--primary); font-weight: 700; letter-spacing: 2px;">PROCESS</p>
+        <h2 style="font-size: 2.2rem; color: #fff;">Three Simple Steps</h2>
+        <div class="step-container">
+            <div class="step-item">
+                <div class="step-num">1</div>
+                <h3>Enter Number</h3>
+                <p>Input the 11-digit mobile number you wish to verify.</p>
+            </div>
+            <div class="step-item">
+                <div class="step-num">2</div>
+                <h3>Handshake</h3>
+                <p>Wait while our algorithms query the decentralized databases.</p>
+            </div>
+            <div class="step-item">
+                <div class="step-num">3</div>
+                <h3>Get Result</h3>
+                <p>Receive an encrypted report containing the owner's details.</p>
             </div>
         </div>
+    </div>
 
-        <!-- content grid -->
-        <h2 style="text-align: center; font-size: 1.8rem; margin-top: 8rem;">Secure & Reliable</h2>
-        <div class="info-grid">
-            <div class="info-box">
-                <i class="fa-solid fa-user-secret info-icon"></i>
-                <h3>Anonymous Search</h3>
-                <p style="color: var(--text-muted);">We perform searches securely. Your IP and query data are never
-                    logged or shared.</p>
-            </div>
-            <div class="info-box">
-                <i class="fa-solid fa-database info-icon"></i>
-                <h3>Latest Data 2026</h3>
-                <p style="color: var(--text-muted);">Directly synced with latest MNP databases to ensure correct network
-                    identification.</p>
-            </div>
-            <div class="info-box">
-                <i class="fa-solid fa-bolt info-icon"></i>
-                <h3>Instant Results</h3>
-                <p style="color: var(--text-muted);">Our optimized algorithms deliver detailed reports in under
-                    milliseconds.</p>
-            </div>
+    <!-- content grid -->
+    <h2 style="text-align: center; font-size: 1.8rem; margin-top: 8rem;">Secure & Reliable</h2>
+    <div class="info-grid">
+        <div class="info-box">
+            <i class="fa-solid fa-user-secret info-icon"></i>
+            <h3>Anonymous Search</h3>
+            <p style="color: var(--text-muted);">We perform searches securely. Your IP and query data are never
+                logged or shared.</p>
         </div>
+        <div class="info-box">
+            <i class="fa-solid fa-database info-icon"></i>
+            <h3>Latest Data 2026</h3>
+            <p style="color: var(--text-muted);">Directly synced with latest MNP databases to ensure correct network
+                identification.</p>
+        </div>
+        <div class="info-box">
+            <i class="fa-solid fa-bolt info-icon"></i>
+            <h3>Instant Results</h3>
+            <p style="color: var(--text-muted);">Our optimized algorithms deliver detailed reports in under
+                milliseconds.</p>
+        </div>
+    </div>
 
-        <footer
-            style="text-align: center; padding: 3rem 0; border-top: 1px solid var(--border-light); color: var(--text-muted); font-size: 0.9rem;">
-            <p>&copy; 2026 Live SIM Database PK. Compliance with PECA 2016.</p>
-        </footer>
+    <footer
+        style="text-align: center; padding: 3rem 0; border-top: 1px solid var(--border-light); color: var(--text-muted); font-size: 0.9rem;">
+        <p>&copy; 2026 Live SIM Database PK. Compliance with PECA 2016.</p>
+    </footer>
 
     </div>
 
@@ -1061,6 +1101,19 @@
         document.getElementById('searchInput').addEventListener('keypress', function (e) {
             if (e.key === 'Enter') validateAndSearch();
         });
+
+        function toggleMenu() {
+            const nav = document.getElementById('navLinks');
+            nav.classList.toggle('active');
+            const icon = document.querySelector('.menu-toggle i');
+            if (nav.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        }
     </script>
 </body>
 
