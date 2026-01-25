@@ -1,9 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
 
-<url>
-  <loc>https://aamir374.github.io/Sim-Info-data/</loc>
-  <priority>1.0</priority>
-</url>
+  <!-- Main Tool Page -->
+  <url>
+    <loc>https://Aamir374.github.io/sim-info-data/</loc>
+  </url>
+
+  <!-- About Page -->
+  <url>
+    <loc>https://Aamir374.github.io/sim-info-data/About.html</loc>
+  </url>
+
+  <!-- Privacy Policy Page -->
+  <url>
+    <loc>https://Aamir374.github.io/sim-info-data/Privacy.html</loc>
+  </url>
+
+  <!-- Disclaimer Page -->
+  <url>
+    <loc>https://Aamir374.github.io/sim-info-data/Disclaimer.html</loc>
+  </url>
+
+  <!-- Contact Page -->
+  <url>
+    <loc>https://Aamir374.github.io/sim-info-data/Contact.html</loc>
+  </url>
 
 </urlset>
