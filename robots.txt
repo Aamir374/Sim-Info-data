@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://livedatabase.pk/sitemap.xml
+Sitemap: https://aamir374.github.io/Sim-Info-data/sitemap.xml
