@@ -2,6 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://aamir374.github.io/Sim-Info-data/</loc>
+<<<<<<< HEAD
     <lastmod>2026-01-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -31,3 +32,7 @@
     <priority>0.3</priority>
   </url>
 </urlset>
+=======
+  </url>
+     </urlset>
+>>>>>>> 6e937f79ddca4908b7b45112dff2c480c9285ff7
