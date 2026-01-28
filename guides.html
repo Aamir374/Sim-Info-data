@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>About Us | Live SIM Database Pakistan 2026</title>
+    <title>Information Guides & Blog | Live SIM Database 2026</title>
     <meta name="description"
-        content="Learn about Live SIM Database Pakistan. We provide free tools to check SIM owner details, network status, and verify mobile numbers against official records.">
+        content="Read our latest guides on how to check SIM details, verify ownership, and protect your mobile data in Pakistan. Official 2026 Tips.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://aamir374.github.io/Sim-Info-data/about.html">
+    <link rel="canonical" href="https://aamir374.github.io/Sim-Info-data/guides.html">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -39,19 +39,16 @@
             position: relative;
         }
 
-        /* Animated Background Grid */
         .bg-grid {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image:
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
             background-size: 50px 50px;
             z-index: -1;
-            pointer-events: none;
         }
 
         .bg-glow {
@@ -66,7 +63,6 @@
             filter: blur(80px);
         }
 
-        /* Navbar */
         nav {
             padding: 1rem 5%;
             display: flex;
@@ -83,7 +79,6 @@
         .logo {
             font-size: 1.4rem;
             font-weight: 800;
-            letter-spacing: 1px;
             color: white;
             text-decoration: none;
             display: flex;
@@ -95,7 +90,6 @@
             color: var(--primary);
         }
 
-        /* Nav Links */
         .nav-links {
             display: flex;
             gap: 30px;
@@ -106,12 +100,11 @@
             color: var(--text-muted);
             font-size: 0.95rem;
             font-weight: 500;
-            transition: all 0.3s;
+            transition: 0.3s;
         }
 
         .nav-links a:hover {
             color: var(--primary);
-            text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
         }
 
         .nav-links a.active {
@@ -120,65 +113,69 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 4rem 1.5rem;
         }
 
         h1 {
             font-size: 3rem;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
             background: linear-gradient(to right, #fff, var(--primary));
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-align: center;
         }
 
-        p {
-            color: var(--text-muted);
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
 
-        .card {
+        .article-card {
             background: var(--card-glass);
             border: 1px solid var(--border-light);
-            padding: 2.5rem;
+            padding: 2rem;
             border-radius: 20px;
-            margin-bottom: 2.5rem;
-            backdrop-filter: blur(10px);
-            animation: slideUp 0.6s ease-out;
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
         }
 
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .article-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.1);
         }
 
-        h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1.2rem;
+        .article-card i {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .article-card h2 {
+            font-size: 1.4rem;
             color: #fff;
+        }
+
+        .article-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .read-more {
+            color: var(--primary);
+            font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 12px;
-        }
-
-        h2::before {
-            content: '';
-            width: 4px;
-            height: 24px;
-            background: var(--primary);
-            border-radius: 4px;
+            gap: 8px;
+            margin-top: auto;
         }
 
         @media (max-width: 768px) {
@@ -211,10 +208,6 @@
             h1 {
                 font-size: 2.2rem;
             }
-
-            .card {
-                padding: 1.5rem;
-            }
         }
 
         .menu-toggle {
@@ -231,8 +224,8 @@
         <a href="index.html" class="logo"><i class="fa-solid fa-satellite-dish"></i> SIM DB 26</a>
         <div class="nav-links" id="navLinks">
             <a href="index.html">Home</a>
-            <a href="guides.html">Guides</a>
-            <a href="about.html" class="active">About</a>
+            <a href="guides.html" class="active">Guides</a>
+            <a href="about.html">About</a>
             <a href="disclaimer.html">Disclaimer</a>
             <a href="privacy.html">Privacy</a>
             <a href="contact.html">Contact</a>
@@ -243,29 +236,40 @@
     </nav>
 
     <div class="container">
-        <h1>About Our Portal</h1>
+        <h1>Information & Resource Guides</h1>
 
-        <div class="card">
-            <h2>Who We Are</h2>
-            <p>Welcome to <strong>Live SIM Database Pakistan 2026</strong>, the country’s leading online utility for
-                mobile network verification. Our platform is designed to provide citizens with instant, accurate, and
-                free access to publicly available network information (MNP status) and location meta-data.</p>
-            <p>Our mission is to increase digital transparency and safety by allowing users to verify the ownership
-                status and network provider of unknown numbers, helping to curb spam, fraud, and harassment.</p>
-        </div>
+        <div class="articles-grid">
+            <!-- Article 1 -->
+            <a href="how-to-check-sim-details.html" class="article-card">
+                <i class="fa-solid fa-address-card"></i>
+                <h2>How to Check SIM Owner Details in Pakistan (2026 Guide)</h2>
+                <p>Complete step-by-step tutorial on verifying ownership, CNIC details, and network status using
+                    official government and utility methods.</p>
+                <div class="read-more">Read Full Guide <i class="fa-solid fa-arrow-right"></i></div>
+            </a>
 
-        <div class="card">
-            <h2>Our Technology</h2>
-            <p>We utilize advanced query algorithms that interface with the latest Mobile Number Portability (MNP)
-                databases. This ensures that even if a number has switched networks (e.g., from Jazz to Zong), our tool
-                correctly identifies the current operator.</p>
-            <p>We prioritize speed and privacy. Our "One-Click Search" technology delivers results in under 1.5 seconds,
-                while our strict privacy protocols ensure that your search history remains anonymous.</p>
+            <!-- Article 2 -->
+            <a href="#" class="article-card">
+                <i class="fa-solid fa-shield-virus"></i>
+                <h2>Protecting Your Mobile Data from Fraud & Spam</h2>
+                <p>Learn how to identify fake calls, report harassment, and keep your mobile identity secure from cyber
+                    threats in Pakistan.</p>
+                <div class="read-more">Coming Soon <i class="fa-solid fa-clock"></i></div>
+            </a>
+
+            <!-- Article 3 -->
+            <a href="#" class="article-card">
+                <i class="fa-solid fa-tower-broadcast"></i>
+                <h2>MNP Status: How to Check if Your SIM is Ported</h2>
+                <p>A simple explanation of Mobile Number Portability and how you can check the current operator of any
+                    mobile number instantly.</p>
+                <div class="read-more">Coming Soon <i class="fa-solid fa-clock"></i></div>
+            </a>
         </div>
     </div>
 
-    <footer style="text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.9rem;">
-        &copy; 2026 Live SIM Database PK. All Rights Reserved.
+    <footer style="text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.9rem; margin-top: 3rem;">
+        &copy; 2026 Live SIM Database PK. Information Hub.
     </footer>
 
     <script>
