@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CNIC Information System: How to Check SIMs on CNIC (2026) | PTA Official</title>
+    <meta name="description"
+        content="Learn how to check many SIM cards are registered against your CNIC in Pakistan. Official guide on using the PTA 668 SMS service and online portal.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://aamir374.github.io/Sim-Info-data/check-sims-on-cnic.html">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #00ff88;
+            --primary-glow: rgba(0, 255, 136, 0.4);
+            --secondary: #00d4ff;
+            --bg-dark: #0a0f1c;
+            --card-glass: rgba(16, 23, 41, 0.8);
+            --border-light: rgba(255, 255, 255, 0.08);
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Outfit', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.8;
+        }
+
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+        }
+
+        nav {
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-light);
+            background: rgba(10, 15, 28, 0.8);
+            backdrop-filter: blur(15px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .category-tag {
+            background: rgba(0, 255, 136, 0.1);
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin: 1.5rem 0;
+            line-height: 1.2;
+            background: linear-gradient(to right, #fff, #b4dbe0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .meta-info {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .content-section {
+            background: var(--card-glass);
+            border: 1px solid var(--border-light);
+            padding: 3rem;
+            border-radius: 24px;
+            backdrop-filter: blur(10px);
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #fff;
+            margin: 2.5rem 0 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h2::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: var(--primary);
+            border-radius: 4px;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .info-box {
+            background: rgba(0, 212, 255, 0.05);
+            border-left: 4px solid var(--secondary);
+            padding: 1.5rem;
+            border-radius: 0 12px 12px 0;
+            margin: 2rem 0;
+        }
+
+        .info-box h3 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        ul,
+        ol {
+            margin-bottom: 1.5rem;
+            padding-left: 20px;
+            color: var(--text-muted);
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: #fff;
+        }
+
+        .conclusion-card {
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.05), rgba(0, 212, 255, 0.05));
+            border: 1px solid var(--primary-glow);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .content-section {
+                padding: 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(10, 15, 28, 0.95);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 20px;
+                border-bottom: 1px solid var(--border-light);
+                z-index: 99;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block !important;
+                font-size: 1.5rem;
+                cursor: pointer;
+                color: var(--text-main);
+            }
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-grid"></div>
+
+    <nav>
+        <a href="index.html" class="logo"><i class="fa-solid fa-satellite-dish"></i> SIM DB 26</a>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="guides.html">Guides</a>
+            <a href="about.html">About</a>
+            <a href="disclaimer.html">Disclaimer</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="article-header">
+            <span class="category-tag">Identity Management</span>
+            <h1>CNIC Information System: How to Check SIMs on CNIC (2026)</h1>
+            <div class="meta-info">
+                <span><i class="fa-solid fa-calendar"></i> Feb 03, 2026</span>
+                <span><i class="fa-solid fa-clock"></i> 5 min read</span>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <p>Every citizen in Pakistan is allowed a maximum of five SIM cards across all mobile networks. Managing
+                your digital identity starts with knowing exactly how many SIMs are registered against your Computerized
+                National Identity Card (CNIC).</p>
+
+            <p>In this comprehensive guide, we'll cover the latest 2026 official methods to verify your mobile
+                connections and ensure no unauthorized numbers are active under your name.</p>
+
+            <h2>1. PTA's 668 SMS Information System</h2>
+            <p>This is the most widely used and reliable method. PTA has made it incredibly simple to get a breakdown of
+                your registered SIMs by network.</p>
+            <ul>
+                <li>Go to your mobile's messaging app.</li>
+                <li>Create a new message and type your **13-digit CNIC number** (no dashes/spaces).</li>
+                <li>Send this message to **668**.</li>
+                <li>Wait for a few seconds to receive a detailed reply.</li>
+            </ul>
+            <p>The reply will show the total number of active SIMs on Jazz, Telenor, Zong, and Ufone registered under
+                your CNIC.</p>
+
+            <div class="info-box">
+                <h3>Standard Charges:</h3>
+                <p>Sending an SMS to 668 costs approximately PKR 2.00 + tax per inquiry.</p>
+            </div>
+
+            <h2>2. Online SIM Information Portal</h2>
+            <p>For those who prefer a web-based interface, PTA provides a real-time portal. This is especially useful if
+                you don't have credit on your phone or want to check from a desktop.</p>
+            <ol>
+                <li>Visit the official PTA SIM Information Website (cnic.sims.pk).</li>
+                <li>Enter your CNIC number in the required field.</li>
+                <li>Complete the CAPTCHA verification.</li>
+                <li>Click the **Submit** button to see your status instantly.</li>
+            </ol>
+
+            <h2>3. What to do if you find unauthorized SIMs?</h2>
+            <p>If the count received from 668 or the portal is higher than the number of SIM cards you actually possess,
+                you might be a victim of identity theft. Follow these steps immediately:</p>
+            <ul>
+                <li>Identify which network has the extra SIMs.</li>
+                <li>Visit the nearest **Customer Service Center** of that specific network.</li>
+                <li>Take your original CNIC with you.</li>
+                <li>Requested the representative to block and cancel all unauthorized numbers.</li>
+            </ul>
+
+            <div class="info-box">
+                <h3>Warning:</h3>
+                <p>Using a SIM registered in someone else's name or allowing others to use your registered SIM for
+                    illegal
+                    activities is a serious crime under the Pakistan Penal Code and PECA.</p>
+            </div>
+
+            <h2>4. Frequency of Checking</h2>
+            <p>We recommend verifying your SIM count at least **twice a year**. With the rise of digital services and
+                biometric verification, keeping your CNIC data clean is a vital part of your personal security.</p>
+
+            <div class="conclusion-card">
+                <h3>Secure Your Identity</h3>
+                <p>Knowledge is your first line of defense. Share this guide with friends and family to help them stay
+                    protected in the digital age.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer style="text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.9rem;">
+        &copy; 2026 Live SIM Database PK. Supporting Digital Security.
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('navLinks');
+            nav.classList.toggle('active');
+            const icon = document.querySelector('.menu-toggle i');
+            if (nav.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        }
+    </script>
+</body>
+
+</html>
